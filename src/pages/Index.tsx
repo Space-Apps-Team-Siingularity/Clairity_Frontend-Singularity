@@ -5,6 +5,10 @@ import { Wind, Satellite, TrendingUp, Bell, MapPin, Sparkles, Activity, Cloud } 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AQIBadge from "@/components/AQIBadge";
+import heroEarth from "@/assets/hero-earth.jpg";
+import monitoringStation from "@/assets/monitoring-station.jpg";
+import tempoSatellite from "@/assets/tempo-satellite.jpg";
+import cleanAir from "@/assets/clean-air.jpg";
 
 const Index = () => {
   return (
@@ -13,8 +17,12 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-hero opacity-10 animate-gradient" />
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${heroEarth})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
@@ -34,18 +42,27 @@ const Index = () => {
               Air Quality Data
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto">
               Monitor air pollution in real-time, get accurate forecasts, and receive alerts 
               to protect your health with NASA's cutting-edge satellite technology.
             </p>
 
-            {/* Live AQI Display */}
+            {/* Glowing AQI Circle */}
             <div className="flex flex-col items-center gap-4 py-8">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                 <MapPin className="h-4 w-4" />
                 <span>Your Location: New York, NY</span>
               </div>
-              <AQIBadge aqi={42} size="xl" showLabel={true} />
+              <div className="relative">
+                <div className="absolute inset-0 bg-secondary/30 rounded-full blur-3xl animate-pulse-glow" />
+                <div className="relative bg-card/50 backdrop-blur-sm border-4 border-secondary rounded-full w-72 h-72 flex flex-col items-center justify-center shadow-glow">
+                  <div className="text-8xl font-bold text-foreground">42</div>
+                  <div className="text-2xl text-muted-foreground mb-2">AQI</div>
+                  <div className="px-6 py-2 bg-secondary rounded-full text-white font-semibold text-lg">
+                    Good
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -145,6 +162,34 @@ const Index = () => {
             </h2>
           </div>
 
+          {/* Featured Images */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="relative overflow-hidden rounded-xl shadow-xl hover-lift group">
+              <img src={tempoSatellite} alt="NASA TEMPO Satellite" className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-foreground mb-1">NASA TEMPO</h3>
+                <p className="text-sm text-muted-foreground">Satellite Monitoring</p>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl shadow-xl hover-lift group">
+              <img src={monitoringStation} alt="Ground Monitoring Station" className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-foreground mb-1">Ground Stations</h3>
+                <p className="text-sm text-muted-foreground">Real-time Sensors</p>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl shadow-xl hover-lift group">
+              <img src={cleanAir} alt="Clean Air Quality" className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-xl font-bold text-foreground mb-1">Weather Data</h3>
+                <p className="text-sm text-muted-foreground">Atmospheric Analysis</p>
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
@@ -187,12 +232,24 @@ const Index = () => {
               </Card>
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <Link to="/data-sources">
+              <Button size="lg" variant="outline" className="hover-lift border-primary/50 hover:bg-primary/10">
+                Explore All Data Sources
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 bg-foreground/5" />
+      <section className="py-20 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${cleanAir})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
@@ -203,12 +260,12 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Link to="/dashboard">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 hover-lift">
                   Get Started Now
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 hover-lift">
                   Learn More
                 </Button>
               </Link>

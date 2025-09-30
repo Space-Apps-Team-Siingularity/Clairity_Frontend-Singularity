@@ -8,32 +8,32 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Base colors - atmospheric theme */
-    --background: 220 25% 97%;
-    --foreground: 222 47% 11%;
+    /* Base colors - Navy blue theme */
+    --background: 217 33% 17%;
+    --foreground: 210 40% 98%;
 
     /* Card with glass effect */
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 220 26% 14%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 220 26% 14%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Primary - Sky blue for clean air theme */
-    --primary: 210 100% 50%;
+    /* Primary - Deep blue accent */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 210 100% 70%;
+    --primary-glow: 217 91% 70%;
 
     /* Secondary - Success green */
-    --secondary: 142 76% 36%;
+    --secondary: 142 76% 46%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted for subtle elements */
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 215 28% 24%;
+    --muted-foreground: 217 20% 65%;
 
-    /* Accent - Vibrant cyan */
-    --accent: 187 85% 48%;
+    /* Accent - Electric cyan */
+    --accent: 187 85% 55%;
     --accent-foreground: 0 0% 100%;
 
     /* Air Quality Levels */
@@ -51,27 +51,27 @@ All colors MUST be HSL.
     --destructive-foreground: 0 0% 100%;
 
     /* Borders and inputs */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 210 100% 50%;
+    --border: 215 28% 24%;
+    --input: 215 28% 24%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%), hsl(187 85% 48%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 70% 50%), hsl(210 100% 50%), hsl(187 85% 48%));
-    --gradient-card: linear-gradient(135deg, hsla(0 0% 100% / 0.9), hsla(0 0% 100% / 0.7));
-    --gradient-aqi-good: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 56%));
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(187 85% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%), hsl(217 91% 40%), hsl(187 85% 55%));
+    --gradient-card: linear-gradient(135deg, hsla(220 26% 14% / 0.95), hsla(215 28% 20% / 0.9));
+    --gradient-aqi-good: linear-gradient(135deg, hsl(142 76% 46%), hsl(142 76% 60%));
     --gradient-aqi-moderate: linear-gradient(135deg, hsl(43 96% 56%), hsl(43 96% 76%));
     --gradient-aqi-unhealthy: linear-gradient(135deg, hsl(14 91% 51%), hsl(14 91% 71%));
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsla(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsla(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsla(0 0% 0% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsla(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 30px hsla(210 100% 50% / 0.3);
-    --shadow-glow-accent: 0 0 30px hsla(187 85% 48% / 0.3);
+    --shadow-sm: 0 1px 2px 0 hsla(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsla(0 0% 0% / 0.5);
+    --shadow-lg: 0 10px 15px -3px hsla(0 0% 0% / 0.6);
+    --shadow-xl: 0 20px 25px -5px hsla(0 0% 0% / 0.7);
+    --shadow-glow: 0 0 50px hsla(142 76% 46% / 0.5);
+    --shadow-glow-accent: 0 0 50px hsla(217 91% 60% / 0.5);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -79,33 +79,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222 47% 11%;
+    --background: 217 33% 12%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 15%;
+    --card: 220 26% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 15%;
+    --popover: 220 26% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 60%;
+    --primary: 217 91% 65%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 210 100% 70%;
+    --primary-glow: 217 91% 75%;
 
-    --secondary: 142 76% 46%;
+    --secondary: 142 76% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 215 28% 18%;
+    --muted-foreground: 217 20% 70%;
 
-    --accent: 187 85% 55%;
+    --accent: 187 85% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 210 100% 60%;
+    --border: 215 28% 18%;
+    --input: 215 28% 18%;
+    --ring: 217 91% 65%;
 
-    --gradient-card: linear-gradient(135deg, hsla(222 47% 15% / 0.9), hsla(222 47% 15% / 0.7));
+    --gradient-card: linear-gradient(135deg, hsla(220 26% 10% / 0.95), hsla(215 28% 15% / 0.9));
   }
 }
 
