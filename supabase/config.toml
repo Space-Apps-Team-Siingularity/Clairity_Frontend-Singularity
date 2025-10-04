@@ -1,1 +1,4 @@
 project_id = "szohssdgegtkakldeemf"
+
+[functions.predict-air-quality]
+verify_jwt = false

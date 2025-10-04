@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import Forecast from "./pages/Forecast";
 import Alerts from "./pages/Alerts";
+import Predictions from "./pages/Predictions";
 import DataSources from "./pages/DataSources";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/alerts" element={<Alerts />} />
+          <Route path="/predictions" element={<Predictions />} />
           <Route path="/data-sources" element={<DataSources />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
