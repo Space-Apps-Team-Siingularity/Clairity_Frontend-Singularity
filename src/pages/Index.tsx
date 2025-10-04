@@ -9,8 +9,40 @@ import heroEarth from "@/assets/hero-earth.jpg";
 import monitoringStation from "@/assets/monitoring-station.jpg";
 import tempoSatellite from "@/assets/tempo-satellite.jpg";
 import cleanAir from "@/assets/clean-air.jpg";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  const [location, setLocation] = useState("Detecting location...");
+  const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
+
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          setCoords({ lat: latitude, lon: longitude });
+          
+          // Reverse geocoding to get city name
+          try {
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+            );
+            const data = await response.json();
+            const city = data.address.city || data.address.town || data.address.village || "Unknown Location";
+            const country = data.address.country || "";
+            setLocation(`${city}, ${country}`);
+          } catch (error) {
+            setLocation(`${latitude.toFixed(2)}°, ${longitude.toFixed(2)}°`);
+          }
+        },
+        () => {
+          setLocation("Location unavailable");
+        }
+      );
+    } else {
+      setLocation("Location not supported");
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -32,26 +64,25 @@ const Index = () => {
           <div className="max-w-5xl mx-auto text-center space-y-8 stagger-children">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 animate-pulse-glow">
               <Satellite className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Powered by NASA TEMPO Satellite</span>
+              <span className="text-sm font-medium text-primary">AI-Powered Air Quality Intelligence</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Breathe Easy with{" "}
+              Breathe Better with{" "}
               <span className="gradient-text">Real-Time</span>
               <br />
-              Air Quality Data
+              Air Quality Insights
             </h1>
 
             <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto">
-              Monitor air pollution in real-time, get accurate forecasts, and receive alerts 
-              to protect your health with NASA's cutting-edge satellite technology.
+              Monitor air quality in real-time with AI-powered predictions and smart alerts to protect your health.
             </p>
 
             {/* Glowing AQI Circle */}
             <div className="flex flex-col items-center gap-4 py-8">
               <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                 <MapPin className="h-4 w-4" />
-                <span>Your Location: New York, NY</span>
+                <span>{location}</span>
               </div>
               <div className="relative">
                 <div className="absolute inset-0 bg-secondary/30 rounded-full blur-3xl animate-pulse-glow" />
@@ -81,12 +112,10 @@ const Index = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12">
+            <div className="grid grid-cols-2 gap-4 pt-12 max-w-2xl mx-auto">
               {[
-                { label: "Monitoring Stations", value: "10,000+" },
                 { label: "Data Points/Hour", value: "2.5M" },
-                { label: "Countries Covered", value: "195" },
-                { label: "Users Protected", value: "500K+" },
+                { label: "Prediction Accuracy", value: "90%+" },
               ].map((stat, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-card/50 backdrop-blur border border-border hover-lift">
                   <div className="text-3xl font-bold text-primary">{stat.value}</div>
@@ -103,10 +132,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold">
-              Comprehensive Air Quality <span className="gradient-text">Intelligence</span>
+              Smart Air Quality <span className="gradient-text">Features</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Integrating multiple data sources for the most accurate and actionable air quality information
+              Cutting-edge technology for accurate air quality monitoring and predictions
             </p>
           </div>
 
@@ -114,26 +143,26 @@ const Index = () => {
             {[
               {
                 icon: Satellite,
-                title: "NASA TEMPO Data",
-                description: "Real-time satellite measurements of NO₂, formaldehyde, ozone, and particulate matter",
+                title: "Satellite Data",
+                description: "Real-time measurements of air pollutants including NO₂, ozone, and particulate matter",
                 color: "text-primary",
               },
               {
                 icon: TrendingUp,
-                title: "AI-Powered Forecasts",
-                description: "Machine learning models predict air quality up to 7 days ahead with 90%+ accuracy",
+                title: "AI Predictions",
+                description: "Advanced machine learning models predict air quality with 90%+ accuracy",
                 color: "text-accent",
               },
               {
                 icon: Bell,
                 title: "Smart Alerts",
-                description: "Personalized notifications when air quality may affect your health or outdoor activities",
+                description: "Get notified when air quality changes may impact your health",
                 color: "text-warning",
               },
               {
                 icon: Cloud,
                 title: "Weather Integration",
-                description: "Combines meteorological data to understand how weather affects pollution levels",
+                description: "Meteorological data combined with pollution metrics for comprehensive insights",
                 color: "text-secondary",
               },
             ].map((feature, idx) => (
@@ -155,10 +184,10 @@ const Index = () => {
           <div className="text-center mb-16 space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
               <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-accent">Trusted Data Sources</span>
+              <span className="text-sm font-medium text-accent">Data Sources</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold">
-              Powered by <span className="gradient-text">World-Class</span> Networks
+              Powered by <span className="gradient-text">Reliable</span> Data
             </h2>
           </div>
 
@@ -168,8 +197,8 @@ const Index = () => {
               <img src={tempoSatellite} alt="NASA TEMPO Satellite" className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-bold text-foreground mb-1">NASA TEMPO</h3>
-                <p className="text-sm text-muted-foreground">Satellite Monitoring</p>
+                <h3 className="text-xl font-bold text-foreground mb-1">Satellite Data</h3>
+                <p className="text-sm text-muted-foreground">Real-time Monitoring</p>
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl shadow-xl hover-lift group">
@@ -193,34 +222,34 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                name: "NASA TEMPO",
-                description: "Hourly air quality measurements across North America",
-                metrics: "NO₂, HCHO, O₃, Aerosols",
+                name: "Satellite Networks",
+                description: "Real-time air quality measurements from orbital sensors",
+                metrics: "NO₂, O₃, Aerosols, HCHO",
               },
               {
-                name: "EPA AirNow",
-                description: "Ground-based air quality monitoring network",
+                name: "Ground Monitoring",
+                description: "Surface-level pollution tracking stations",
                 metrics: "PM2.5, PM10, O₃, CO, SO₂",
               },
               {
-                name: "Pandora Network",
-                description: "Spectroscopic measurements of atmospheric composition",
-                metrics: "168 Global Sites",
-              },
-              {
-                name: "NOAA Weather",
-                description: "Meteorological data for pollution forecasting",
+                name: "Weather Data",
+                description: "Meteorological information for accurate forecasting",
                 metrics: "Wind, Temperature, Humidity",
               },
               {
-                name: "OpenAQ",
-                description: "Global open-source air quality data platform",
-                metrics: "10,000+ Stations Worldwide",
+                name: "AI Models",
+                description: "Machine learning predictions with high accuracy",
+                metrics: "90%+ Accuracy",
               },
               {
-                name: "TOLNet",
-                description: "Tropospheric ozone measurements via LIDAR",
-                metrics: "12 Sites (3 Fixed, 9 Mobile)",
+                name: "Global Coverage",
+                description: "Air quality data from multiple continents",
+                metrics: "Worldwide Access",
+              },
+              {
+                name: "Real-time Updates",
+                description: "Continuous data refresh for current conditions",
+                metrics: "Hourly Updates",
               },
             ].map((source, idx) => (
               <Card key={idx} className="p-6 hover-lift bg-gradient-card backdrop-blur border-border">
@@ -253,10 +282,10 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
-              Ready to Monitor Your Air Quality?
+              Start Monitoring Your Air Quality
             </h2>
             <p className="text-xl text-white/80">
-              Join thousands of users who trust TEMPO AirWatch for accurate, real-time air quality information
+              Get real-time air quality data and AI-powered predictions for your location
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Link to="/dashboard">

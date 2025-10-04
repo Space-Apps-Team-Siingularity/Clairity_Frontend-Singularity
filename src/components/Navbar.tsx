@@ -31,7 +31,7 @@ const Navbar = () => {
               <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:blur-2xl transition-all duration-500" />
             </div>
             <span className="font-bold text-xl bg-gradient-primary bg-clip-text text-transparent">
-              TEMPO AirWatch
+              Clairity
             </span>
           </Link>
 

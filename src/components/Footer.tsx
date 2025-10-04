@@ -10,10 +10,10 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Wind className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">TEMPO AirWatch</span>
+              <span className="font-bold text-lg">Clairity</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Real-time air quality monitoring powered by NASA's TEMPO satellite and advanced forecasting technology.
+              Real-time air quality monitoring with AI-powered predictions and advanced forecasting.
             </p>
           </div>
 
@@ -89,8 +89,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2025 TEMPO AirWatch. Built for NASA Space Apps Challenge. All rights reserved.</p>
-          <p className="mt-2">Data sources: NASA TEMPO, EPA AirNow, NOAA Weather, Pandora Network, OpenAQ</p>
+          <p>© 2025 Clairity. All rights reserved.</p>
         </div>
       </div>
     </footer>
