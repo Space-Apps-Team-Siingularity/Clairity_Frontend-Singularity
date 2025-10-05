@@ -176,10 +176,10 @@ const Dashboard = () => {
               </div>
               <div className="space-y-3">
                 {[
-                  { name: "NASA TEMPO", status: "Active", updated: "1 min ago", quality: "Realtime" },
-                  { name: "NASA MERRA-2", status: "Active", updated: "hourly", quality: "Reanalysis" },
+                  { name: "NASA TEMPO", status: "Active", updated: "Oct 1", quality: "Realtime" },
+                  { name: "NASA MERRA-2", status: "Active", updated: "Oct 1", quality: "Reanalysis" },
                   { name: "Open-Meteo", status: "Active", updated: "now", quality: "Forecast" },
-                  { name: "NASA OMI", status: "Active", updated: "daily", quality: "Ozone" },
+                  { name: "NASA OMI", status: "Active", updated: "Oct 1", quality: "Ozone" },
                 ].map((source, idx) => (
                   <div key={idx} className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
                     <div>
