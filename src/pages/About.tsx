@@ -25,7 +25,7 @@ const About = () => {
     {
       icon: Award,
       title: "Scientific Excellence",
-      description: "Built on NASA-grade technology and validated by leading atmospheric scientists",
+      description: "Built on NASA technology and validated by leading atmospheric scientists",
     },
   ];
 
@@ -46,7 +46,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center mb-16 space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
               <Rocket className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">NASA Space Apps Challenge 2024</span>
+              <span className="text-sm font-medium text-primary">NASA Space Apps Challenge 2025</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold">
@@ -65,8 +65,8 @@ const About = () => {
               <Target className="h-12 w-12 mb-4" />
               <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-lg opacity-90">
-                To democratize access to real-time air quality information, empowering individuals and communities 
-                to make informed decisions that protect their health and well-being.
+                To distribute access to real-time air quality information, allowing individuals and communities 
+                to make detailed decisions that protect their health.
               </p>
             </Card>
 
@@ -74,8 +74,8 @@ const About = () => {
               <Heart className="h-12 w-12 mb-4" />
               <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
               <p className="text-lg opacity-90">
-                A world where everyone has the knowledge and tools to avoid harmful air pollution exposure, 
-                leading to healthier communities and a more sustainable future for all.
+                A world where everyone has the knowledge to avoid harmful air pollution exposure, 
+                leading to healthier communities and a more sustainable future.
               </p>
             </Card>
           </div>
