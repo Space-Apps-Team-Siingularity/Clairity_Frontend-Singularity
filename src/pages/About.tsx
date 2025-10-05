@@ -10,7 +10,7 @@ const About = () => {
     {
       icon: Zap,
       title: "Real-Time Monitoring",
-      description: "Instant access to air quality data updated every hour from NASA's TEMPO satellite, among others",
+      description: "Instant access to air quality data from NASA's TEMPO satellite, among others",
     },
     {
       icon: Shield,
@@ -112,9 +112,9 @@ const About = () => {
                 sources, higher rates of underlying health problems, and lack of access to real-time information.
               </p>
               <p>
-                <strong className="text-foreground">TEMPO AirWatch bridges this gap</strong> by integrating NASA's revolutionary TEMPO satellite data with 
-                ground-based monitoring networks and weather information, providing accurate, accessible air quality insights 
-                for everyone, everywhere.
+                <strong className="text-foreground">Clairity bridges this gap</strong> by integrating NASA's TEMPO satellite data with 
+                ground-based monitoring networks and weather information, as well as Physical IOT sensors ( May not be available everywhere) providing accurate, 
+                accessible air quality insights for everyone, everywhere.
               </p>
             </div>
           </Card>
@@ -184,7 +184,7 @@ const About = () => {
           <div className="text-center space-y-6">
             <h2 className="text-3xl font-bold">Ready to Start Monitoring?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of users who trust TEMPO AirWatch for real-time air quality information
+              Be part of the change: help make air quality awareness available to all.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/dashboard">
