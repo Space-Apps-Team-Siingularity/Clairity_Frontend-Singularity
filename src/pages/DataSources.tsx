@@ -14,7 +14,7 @@ const DataSources = () => {
       coverage: "North America",
       resolution: "High Resolution (2.1 km x 4.7 km)",
       frequency: "Hourly",
-      status: "Active",
+      status: "Not updated since Oct 1",
       url: "https://tempo.si.edu",
     },
     {
@@ -24,7 +24,7 @@ const DataSources = () => {
       coverage: "Global",
       resolution: "0.5° x 0.625°",
       frequency: "Hourly to 6-hourly",
-      status: "Active",
+      status: "Not updated since Oct 1",
       url: "https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/",
     },
   ];
@@ -95,8 +95,9 @@ const DataSources = () => {
               Our <span className="gradient-text">Data Sources</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
-              TEMPO AirWatch integrates data from NASA satellites, global monitoring networks, and meteorological services 
-              to provide the most comprehensive and accurate air quality information available
+              Clairity integrates data from NASA satellites, global monitoring networks, and meteorological services 
+              to provide the most comprehensive and accurate air quality information available ( Note that NASA Datasets have
+              not been updated since Oct 1 )
             </p>
           </div>
 
