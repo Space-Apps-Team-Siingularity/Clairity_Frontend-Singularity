@@ -135,7 +135,7 @@ const Index = () => {
               Smart Air Quality <span className="gradient-text">Features</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Cutting-edge technology for accurate air quality monitoring and predictions
+              Advanced technology for accurate air quality monitoring and predictions
             </p>
           </div>
 
@@ -144,25 +144,25 @@ const Index = () => {
               {
                 icon: Satellite,
                 title: "Satellite Data",
-                description: "Real-time measurements of air pollutants including NO₂, ozone, and particulate matter",
+                description: "Real-time measurements of air pollutants including NO₂, ozone, and more",
                 color: "text-primary",
               },
               {
                 icon: TrendingUp,
                 title: "AI Predictions",
-                description: "Advanced machine learning models predict air quality with 90%+ accuracy",
+                description: "machine learning models predict air quality with 90%+ accuracy",
                 color: "text-accent",
               },
               {
                 icon: Bell,
                 title: "Smart Alerts",
-                description: "Get notified when air quality changes may impact your health",
+                description: "Get notified when air quality changes may impact you or your family's health",
                 color: "text-warning",
               },
               {
                 icon: Cloud,
                 title: "Weather Integration",
-                description: "Meteorological data combined with pollution metrics for comprehensive insights",
+                description: "Meteorological data combined with pollution metrics for detailed insights",
                 color: "text-secondary",
               },
             ].map((feature, idx) => (
