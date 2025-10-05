@@ -119,7 +119,7 @@ const Contact = () => {
                     <Mail className="h-5 w-5 mt-0.5 flex-shrink-0" />
                     <div>
                       <div className="font-medium">Email</div>
-                      <a href="mailto:contact@tempoairwatch.com" className="text-sm opacity-90 hover:opacity-100">
+                      <a href="mailto:clairity.spaceapps@gmail.com" className="text-sm opacity-90 hover:opacity-100">
                         contact@tempoairwatch.com
                       </a>
                     </div>
@@ -204,7 +204,8 @@ const Contact = () => {
                 <h3 className="font-semibold mb-2">How often is data updated?</h3>
                 <p className="text-sm text-muted-foreground">
                   Air quality measurements are updated hourly from NASA's TEMPO satellite, with near real-time 
-                  updates from ground stations every 15-30 minutes.
+                  updates from ground stations every 15-30 minutes. (note that, currently, there are no updates to 
+                  the NASA datasets due to funding issues)
                 </p>
               </div>
               <div>
@@ -217,8 +218,8 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold mb-2">Can I access historical data?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Yes, we provide access to historical air quality data going back several years, useful for 
-                  research and trend analysis.
+                  While we do not offer the datasets themselves, our model is trained on data going back to 2024, 
+                  and we provide links to the websites to download the data (you may need an Earthdata account)
                 </p>
               </div>
             </div>
