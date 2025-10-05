@@ -10,22 +10,22 @@ const About = () => {
     {
       icon: Zap,
       title: "Real-Time Monitoring",
-      description: "Instant access to air quality data updated every hour from NASA's TEMPO satellite",
+      description: "Instant access to air quality data updated every hour from NASA's TEMPO satellite, among others",
     },
     {
       icon: Shield,
       title: "Health-First Approach",
-      description: "Personalized alerts and recommendations to protect you and your loved ones",
+      description: "Detailed recommendations to protect you and your loved ones",
     },
     {
       icon: Globe,
       title: "Global Coverage",
-      description: "Comprehensive data from 195+ countries and 25,000+ monitoring stations worldwide",
+      description: "Comprehensive data from 25,000+ monitoring stations worldwide, supported across MENA",
     },
     {
       icon: Award,
       title: "Scientific Excellence",
-      description: "Built on NASA-grade technology and validated by leading atmospheric scientists",
+      description: "Built on NASA datasets that were validated by leading atmospheric scientists",
     },
   ];
 
@@ -46,11 +46,11 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center mb-16 space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
               <Rocket className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">NASA Space Apps Challenge 2024</span>
+              <span className="text-sm font-medium text-primary">NASA Space Apps Challenge 2025</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold">
-              About <span className="gradient-text">TEMPO AirWatch</span>
+              About <span className="gradient-text">Clairity</span>
             </h1>
             
             <p className="text-xl text-muted-foreground leading-relaxed">
@@ -65,7 +65,7 @@ const About = () => {
               <Target className="h-12 w-12 mb-4" />
               <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-lg opacity-90">
-                To democratize access to real-time air quality information, empowering individuals and communities 
+                To provide access to real-time air quality information, empowering individuals and communities 
                 to make informed decisions that protect their health and well-being.
               </p>
             </Card>
@@ -83,7 +83,7 @@ const About = () => {
           {/* Key Features */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-12">
-              Why Choose <span className="gradient-text">TEMPO AirWatch</span>?
+              Why Choose <span className="gradient-text">Clairity</span>?
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, idx) => (
@@ -167,7 +167,7 @@ const About = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-6">Our Team</h2>
             <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-              A passionate group of developers, designers, and data scientists united by a common goal: 
+              A passionate group of ML developers, Web designers, and IOT experts united by a common goal: 
               making air quality data accessible to everyone.
             </p>
             <div className="grid md:grid-cols-4 gap-6">
