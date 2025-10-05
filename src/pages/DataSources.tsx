@@ -27,16 +27,6 @@ const DataSources = () => {
       status: "Active",
       url: "https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/",
     },
-    {
-      name: "NOAA GOES Satellites",
-      description: "Geostationary weather satellites providing continuous imagery and atmospheric measurements",
-      parameters: ["Cloud Cover", "Atmospheric Conditions", "Weather Patterns"],
-      coverage: "Americas",
-      resolution: "Variable",
-      frequency: "Continuous",
-      status: "Active",
-      url: "https://www.goes.noaa.gov/",
-    },
   ];
 
   const groundStations = [

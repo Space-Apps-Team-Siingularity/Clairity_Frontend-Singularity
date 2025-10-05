@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { callPredict, parseScoreFromMarkdown } from "@/lib/hf";
 import { Loader2, Wind, Droplets, Gauge, Thermometer } from "lucide-react";
 import AQIBadge from "@/components/AQIBadge";
 
@@ -78,23 +78,9 @@ const Predictions = () => {
     setPrediction(null);
 
     try {
-      const { data: result, error } = await supabase.functions.invoke(
-        "predict-air-quality",
-        {
-          body: {
-            city: data.city,
-            pm25: parseFloat(data.pm25),
-            temperature: parseFloat(data.temperature),
-            humidity: parseFloat(data.humidity),
-            pressure: parseFloat(data.pressure),
-          },
-        }
-      );
-
-      if (error) throw error;
-
-      console.log("Prediction result:", result);
-      setPrediction(result);
+      const res = await callPredict(data.city);
+      const parsed = parseScoreFromMarkdown(res.raw);
+      setPrediction({ markdown: res.raw, parsed });
 
       toast({
         title: "Prediction Complete",
@@ -263,23 +249,16 @@ const Predictions = () => {
               {prediction ? (
                 <div className="space-y-4">
                   <div className="p-6 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
-                    <h3 className="text-sm font-medium text-muted-foreground mb-2">
-                      Predicted AQI
-                    </h3>
+                    <h3 className="text-sm font-medium text-muted-foreground mb-2">Predicted Score & Category</h3>
                     <div className="flex items-center gap-4">
-                      <div className="text-4xl font-bold">{prediction.aqi || "N/A"}</div>
-                      <AQIBadge aqi={prediction.aqi || 0} />
+                      <div className="text-4xl font-bold">{prediction.parsed?.score ?? "--"}</div>
+                      <div className="text-sm">{prediction.parsed?.category ?? "--"}</div>
                     </div>
                   </div>
-
-                  {prediction.details && (
-                    <div className="space-y-3">
-                      <h3 className="font-semibold">Prediction Details</h3>
-                      <pre className="p-4 rounded-lg bg-muted text-sm overflow-auto max-h-96">
-                        {JSON.stringify(prediction.details, null, 2)}
-                      </pre>
-                    </div>
-                  )}
+                  <div className="space-y-3">
+                    <h3 className="font-semibold">Raw Output</h3>
+                    <pre className="p-4 rounded-lg bg-muted text-sm overflow-auto max-h-96">{prediction.markdown}</pre>
+                  </div>
                 </div>
               ) : (
                 <div className="text-center py-12 text-muted-foreground">

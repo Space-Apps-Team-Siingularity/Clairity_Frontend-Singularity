@@ -10,38 +10,53 @@ import monitoringStation from "@/assets/monitoring-station.jpg";
 import tempoSatellite from "@/assets/tempo-satellite.jpg";
 import cleanAir from "@/assets/clean-air.jpg";
 import { useState, useEffect } from "react";
+import { estimateMenaCity, getBrowserCoordinates } from "@/lib/geo";
+import { fetchOpenMeteoCurrent } from "@/lib/openmeteo";
+import { callPredict, parseScoreFromMarkdown } from "@/lib/hf";
 
 const Index = () => {
   const [location, setLocation] = useState("Detecting location...");
-  const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
+  const [city, setCity] = useState<string>("Other");
+  const [score, setScore] = useState<number | null>(null);
+  const [category, setCategory] = useState<string | null>(null);
+  const [temperatureC, setTemperatureC] = useState<number | null>(null);
+  const [humidityPct, setHumidityPct] = useState<number | null>(null);
 
   useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude, longitude } = position.coords;
-          setCoords({ lat: latitude, lon: longitude });
-          
-          // Reverse geocoding to get city name
-          try {
-            const response = await fetch(
-              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-            );
-            const data = await response.json();
-            const city = data.address.city || data.address.town || data.address.village || "Unknown Location";
-            const country = data.address.country || "";
-            setLocation(`${city}, ${country}`);
-          } catch (error) {
-            setLocation(`${latitude.toFixed(2)}°, ${longitude.toFixed(2)}°`);
-          }
-        },
-        () => {
-          setLocation("Location unavailable");
-        }
-      );
-    } else {
-      setLocation("Location not supported");
-    }
+    (async () => {
+      const coords = await getBrowserCoordinates();
+      if (!coords) {
+        setLocation("Location unavailable");
+        return;
+      }
+      try {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.latitude}&lon=${coords.longitude}`
+        );
+        const data = await response.json();
+        const locCity = data.address.city || data.address.town || data.address.village || "Unknown Location";
+        const country = data.address.country || "";
+        setLocation(`${locCity}, ${country}`);
+      } catch {
+        setLocation(`${coords.latitude.toFixed(2)}°, ${coords.longitude.toFixed(2)}°`);
+      }
+
+      const est = estimateMenaCity({ latitude: coords.latitude, longitude: coords.longitude });
+      setCity(est);
+
+      try {
+        const current = await fetchOpenMeteoCurrent({ latitude: coords.latitude, longitude: coords.longitude });
+        setTemperatureC(current.temperatureC);
+        setHumidityPct(current.humidityPct);
+      } catch {}
+
+      try {
+        const pred = await callPredict(est);
+        const parsed = parseScoreFromMarkdown(pred.raw);
+        setScore(parsed.score);
+        setCategory(parsed.category);
+      } catch {}
+    })();
   }, []);
   return (
     <div className="min-h-screen bg-background">
@@ -87,10 +102,10 @@ const Index = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-secondary/30 rounded-full blur-3xl animate-pulse-glow" />
                 <div className="relative bg-card/50 backdrop-blur-sm border-4 border-secondary rounded-full w-72 h-72 flex flex-col items-center justify-center shadow-glow">
-                  <div className="text-8xl font-bold text-foreground">42</div>
-                  <div className="text-2xl text-muted-foreground mb-2">AQI</div>
+                  <div className="text-8xl font-bold text-foreground">{score !== null ? Math.round(score) : "--"}</div>
+                  <div className="text-2xl text-muted-foreground mb-2">Score</div>
                   <div className="px-6 py-2 bg-secondary rounded-full text-white font-semibold text-lg">
-                    Good
+                    {category ?? "Loading..."}
                   </div>
                 </div>
               </div>
@@ -114,8 +129,8 @@ const Index = () => {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 pt-12 max-w-2xl mx-auto">
               {[
-                { label: "Data Points/Hour", value: "2.5M" },
-                { label: "Prediction Accuracy", value: "90%+" },
+                { label: "Temp (°C)", value: temperatureC !== null ? `${Math.round(temperatureC)}°C` : "--" },
+                { label: "Humidity", value: humidityPct !== null ? `${Math.round(humidityPct)}%` : "--" },
               ].map((stat, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-card/50 backdrop-blur border border-border hover-lift">
                   <div className="text-3xl font-bold text-primary">{stat.value}</div>
