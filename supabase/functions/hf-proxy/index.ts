@@ -4,6 +4,12 @@
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
+
 type PredictApi = {
   city: string;
   sensor_pm25: number;
@@ -18,24 +24,23 @@ type Predict7DayApi = {
 
 const SPACE_API = "https://shauryac-mena-air-quality-predictor.hf.space/gradio_api/call"; // Gradio queue API base
 
-async function callGradio(apiName: string, payload: Record<string, unknown>) {
-  // Try using the Gradio REST runner endpoint
-  const res = await fetch(`${SPACE_API}/${apiName}`, {
-    method: "POST",
-    body: payload as any,
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`HF call failed: ${res.status} ${text}`);
-  }
-  return await res.json();
-}
+// NOTE: The 'callGradio' function was present in the target code but not used in the final logic,
+// which uses direct fetch calls to the Gradio Queue API steps (create event, poll result).
+// I will keep it commented out or remove it to match the provided target code's behavior.
 
 function jsonResponse(body: unknown, init?: ResponseInit) {
   return new Response(JSON.stringify(body), {
     ...init,
     headers: { "content-type": "application/json", ...(init?.headers || {}) },
   });
+}
+
+function cors() {
+  return {
+    "access-control-allow-origin": "*",
+    "access-control-allow-methods": "GET,POST,OPTIONS",
+    "access-control-allow-headers": "content-type,authorization,apikey",
+  } as Record<string, string>;
 }
 
 serve(async (req) => {
@@ -113,16 +118,4 @@ serve(async (req) => {
     return jsonResponse({ error: String(e) }, { status: 500, headers: cors() });
   }
 });
-
-function cors() {
-  return {
-    "access-control-allow-origin": "*",
-    "access-control-allow-methods": "GET,POST,OPTIONS",
-    "access-control-allow-headers": "content-type,authorization,apikey",
-  } as Record<string, string>;
-}
-
-
-
-
 
