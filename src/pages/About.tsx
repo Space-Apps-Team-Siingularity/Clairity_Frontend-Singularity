@@ -180,29 +180,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* Impact */}
-          <Card className="p-8 mb-16 bg-gradient-hero text-white">
-            <h2 className="text-3xl font-bold mb-6 text-center">Our Impact</h2>
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-5xl font-bold mb-2">500K+</div>
-                <div className="text-lg opacity-90">Active Users</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">2.5M</div>
-                <div className="text-lg opacity-90">Alerts Sent</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">195</div>
-                <div className="text-lg opacity-90">Countries Served</div>
-              </div>
-              <div>
-                <div className="text-5xl font-bold mb-2">99.9%</div>
-                <div className="text-lg opacity-90">Uptime</div>
-              </div>
-            </div>
-          </Card>
-
           {/* CTA */}
           <div className="text-center space-y-6">
             <h2 className="text-3xl font-bold">Ready to Start Monitoring?</h2>
