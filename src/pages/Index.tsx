@@ -79,18 +79,18 @@ const Index = () => {
           <div className="max-w-5xl mx-auto text-center space-y-8 stagger-children">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 animate-pulse-glow">
               <Satellite className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">AI-Powered Air Quality Intelligence</span>
+              <span className="text-sm font-medium text-primary">ML-Powered Air Quality Detection</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Breathe Better with{" "}
-              <span className="gradient-text">Real-Time</span>
+              Breathe Easy with{" "}
+              <span className="gradient-text">ML-Powered</span>
               <br />
               Air Quality Insights
             </h1>
 
             <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto">
-              Monitor air quality in real-time with AI-powered predictions and smart alerts to protect your health.
+              Monitor air quality in real-time with smart predictions and timely alerts to protect your health.
             </p>
 
             {/* Glowing AQI Circle */}
@@ -150,7 +150,7 @@ const Index = () => {
               Smart Air Quality <span className="gradient-text">Features</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Cutting-edge technology for accurate air quality monitoring and predictions
+              Precise ML models for accurate air quality monitoring and predictions
             </p>
           </div>
 
@@ -159,25 +159,25 @@ const Index = () => {
               {
                 icon: Satellite,
                 title: "Satellite Data",
-                description: "Real-time measurements of air pollutants including NO₂, ozone, and particulate matter",
+                description: "Satelite measurements of air pollutants including NO₂, ozone, and particulate matter",
                 color: "text-primary",
               },
               {
                 icon: TrendingUp,
-                title: "AI Predictions",
-                description: "Advanced machine learning models predict air quality with 90%+ accuracy",
+                title: "ML Predictions",
+                description: "Advanced machine learning models predict air quality with 95%+ accuracy (Calculated from R₂, MSE and MAE)",
                 color: "text-accent",
               },
               {
                 icon: Bell,
                 title: "Smart Alerts",
-                description: "Get notified when air quality changes may impact your health",
+                description: "Get timely information about future air quality changes up to a week in advance",
                 color: "text-warning",
               },
               {
                 icon: Cloud,
                 title: "Weather Integration",
-                description: "Meteorological data combined with pollution metrics for comprehensive insights",
+                description: "Live meteorological data combined with pollution metrics for detailed insights",
                 color: "text-secondary",
               },
             ].map((feature, idx) => (
@@ -238,12 +238,12 @@ const Index = () => {
             {[
               {
                 name: "Satellite Networks",
-                description: "Real-time air quality measurements from orbital sensors",
+                description: "Precise air quality measurements from orbital sensors",
                 metrics: "NO₂, O₃, Aerosols, HCHO",
               },
               {
                 name: "Ground Monitoring",
-                description: "Surface-level pollution tracking stations",
+                description: "Surface-level pollution tracking IoT Sensors",
                 metrics: "PM2.5, PM10, O₃, CO, SO₂",
               },
               {
@@ -254,17 +254,17 @@ const Index = () => {
               {
                 name: "AI Models",
                 description: "Machine learning predictions with high accuracy",
-                metrics: "90%+ Accuracy",
+                metrics: "95%+ Accuracy",
               },
               {
-                name: "Global Coverage",
-                description: "Air quality data from multiple continents",
-                metrics: "Worldwide Access",
+                name: "Detailed Coverage",
+                description: "Air quality data from across MENA, spanning two years",
+                metrics: "MENA-wide Access",
               },
               {
                 name: "Real-time Updates",
-                description: "Continuous data refresh for current conditions",
-                metrics: "Hourly Updates",
+                description: "Live updates temporarily unavailable (NASA EarthData offline since Oct 1)",
+                metrics: "Service Restored Soon",
               },
             ].map((source, idx) => (
               <Card key={idx} className="p-6 hover-lift bg-gradient-card backdrop-blur border-border">
