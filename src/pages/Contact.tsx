@@ -120,7 +120,7 @@ const Contact = () => {
                     <div>
                       <div className="font-medium">Email</div>
                       <a href="mailto:clairity.spaceapps@gmail.com" className="text-sm opacity-90 hover:opacity-100">
-                        contact@tempoairwatch.com
+                        clairity.spaceapps@gmail.com
                       </a>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ const Contact = () => {
                       <div className="font-medium">Address</div>
                       <div className="text-sm opacity-90">
                         NASA Space Apps Challenge<br />
-                        Virtual Team
+                        Team Singularity
                       </div>
                     </div>
                   </div>
@@ -197,7 +197,7 @@ const Contact = () => {
                 <h3 className="font-semibold mb-2">How accurate is your air quality data?</h3>
                 <p className="text-sm text-muted-foreground">
                   Our forecasts achieve 95%+ accuracy by integrating NASA TEMPO satellite data with ground-based 
-                  monitoring networks and advanced AI models.
+                  monitoring networks and advanced MLP models.
                 </p>
               </div>
               <div>
@@ -209,16 +209,16 @@ const Contact = () => {
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Is TEMPO AirWatch free to use?</h3>
+                <h3 className="font-semibold mb-2">Is Clairity free to use?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Yes! Our core features are completely free. We believe everyone deserves access to air quality 
+                  Yes! Our features are completely free. We believe everyone deserves access to air quality 
                   information to protect their health.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold mb-2">Can I access historical data?</h3>
                 <p className="text-sm text-muted-foreground">
-                  While we do not offer the datasets themselves, our model is trained on data going back to 2024, 
+                  While we do not offer the datasets themselves, our model is trained on data going back to January 2024, 
                   and we provide links to the websites to download the data (you may need an Earthdata account)
                 </p>
               </div>
