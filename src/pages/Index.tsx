@@ -83,10 +83,9 @@ const Index = () => {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Breathe Easy with{" "}
-              <span className="gradient-text">ML-Powered</span>
+              <span className="gradient-text">Clairity</span>
               <br />
-              Air Quality Insights
+              Breathe Better
             </h1>
 
             <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto">
