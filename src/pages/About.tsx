@@ -55,7 +55,7 @@ const About = () => {
             
             <p className="text-xl text-muted-foreground leading-relaxed">
               We're on a mission to make air quality data accessible, understandable, and actionable for everyone. 
-              By leveraging NASA's cutting-edge TEMPO satellite technology, we're helping millions of people breathe easier.
+              By utilizing NASA's cutting-edge TEMPO satellite technology, we're helping millions of people breathe easier.
             </p>
           </div>
 
@@ -65,8 +65,8 @@ const About = () => {
               <Target className="h-12 w-12 mb-4" />
               <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-lg opacity-90">
-                To provide access to real-time air quality information, empowering individuals and communities 
-                to make informed decisions that protect their health and well-being.
+                To provide access to real-time air quality information, enabling individuals and communities 
+                to make informed decisions that protect their health and wellbeing.
               </p>
             </Card>
 
@@ -113,7 +113,7 @@ const About = () => {
               </p>
               <p>
                 <strong className="text-foreground">Clairity bridges this gap</strong> by integrating NASA's TEMPO satellite data with 
-                ground-based monitoring networks and weather information, as well as Physical IOT sensors ( May not be available everywhere) providing accurate, 
+                ground-based monitoring networks and weather information, as well as Physical IOT sensors ( May not be available everywhere ) providing accurate, 
                 accessible air quality insights for everyone, everywhere.
               </p>
             </div>
@@ -143,8 +143,8 @@ const About = () => {
                   <li>• Machine Learning Forecasts</li>
                   <li>• Pattern Recognition</li>
                   <li>• Anomaly Detection</li>
-                  <li>• Predictive Modeling</li>
-                  <li>• Data Fusion Algorithms</li>
+                  <li>• LSTM Predictive Modeling</li>
+                  <li>• MLP Deep Learning Algorithm</li>
                   <li>• Real-time Processing</li>
                 </ul>
               </Card>
@@ -154,10 +154,10 @@ const About = () => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>• Interactive Visualizations</li>
                   <li>• Mobile-Responsive Design</li>
-                  <li>• Personalized Alerts</li>
-                  <li>• Multi-Language Support</li>
-                  <li>• Accessibility Features</li>
-                  <li>• API Access</li>
+                  <li>• Simplified Alerts (normalized to 100)</li>
+                  <li>• Multi-Language Support (coming soon)</li>
+                  <li>• Accessibility Feature (coming soon)s</li>
+                  <li>• Public API Access (coming soon)</li>
                 </ul>
               </Card>
             </div>
